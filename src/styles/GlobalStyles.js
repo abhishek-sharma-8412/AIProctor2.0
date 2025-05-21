@@ -14,6 +14,13 @@ const GlobalStyles = createGlobalStyle`
     --warning: #ffbe0b;
     --danger: #e63946;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    :root {
+  /* Your existing variables */
+  --primary-rgb: 64, 95, 255; /* RGB values of your primary color */
+  --primary-light: rgba(64, 95, 255, 0.5); /* Lighter version of primary color */
+  --card-bg-rgb: 255, 255, 255; /* RGB values of your card background */
+}
+
   }
 
   * {
