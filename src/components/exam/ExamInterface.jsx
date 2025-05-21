@@ -26,18 +26,32 @@ const ExamContent = styled.div`
   
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
   }
 `;
 
 const QuestionsSection = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 `;
 
 const ProctoringSidebar = styled(Card)`
   height: fit-content;
   position: sticky;
   top: 90px;
+  
+  @media (max-width: 1024px) {
+    position: relative;
+    top: 0;
+    margin-top: 1rem;
+  }
 `;
 
 const WebcamContainer = styled.div`

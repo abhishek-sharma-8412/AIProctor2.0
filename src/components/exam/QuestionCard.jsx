@@ -110,16 +110,17 @@ const QuestionCard = ({ question, number, onAnswerChange }) => {
       <OptionsContainer>
         {question.options.map((option) => (
           <motion.div
-            key={option.id}
+            key={option.option_id}
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
           >
-            <OptionLabel className={selectedOption === option.id ? 'selected' : ''}>
+            <OptionLabel className={selectedOption === option.option_id ? 'selected' : ''}>
               <RadioInput
                 type="radio"
                 name={`question-${question.id}`}
-                checked={selectedOption === option.id}
-                onChange={() => handleOptionChange(option.id)}
+                value={option.option_id}
+                checked={selectedOption === option.option_id}
+                onChange={() => handleOptionChange(option.option_id)}
               />
               <OptionText dangerouslySetInnerHTML={{ __html: option.text }} />
             </OptionLabel>

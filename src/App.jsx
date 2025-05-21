@@ -4,15 +4,18 @@ import StudentLogin from './pages/StudentLogin';
 import StudentSignIn from './pages/StudentSignIn';
 import AdminLogin from './pages/AdminLogin';
 import AdminSignIn from './pages/AdminSignIn';
+import LandingPage from './pages/LandingPage';
 import GlobalStyles from './styles/GlobalStyles';
 import ExamInterface from './components/exam/ExamInterface';
 import ProctorDashboard from './components/dashboard/ProctorDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+
 function App() {
   return (
     <Router>
       <GlobalStyles />
-         <Routes>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/student-login" element={<StudentLogin />} />
         <Route path="/student-signin" element={<StudentSignIn />} />
         <Route path="/admin-login" element={<AdminLogin />} />
@@ -33,7 +36,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Navigate to="/student-login" replace />} />
       </Routes>
     </Router>
   );
