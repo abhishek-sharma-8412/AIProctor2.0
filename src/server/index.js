@@ -305,14 +305,24 @@ app.post('/api/exams/:examId/submit', async (req, res) => {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
+    // Get the exam session
+    const { data: session, error: sessionError } = await supabase
+      .from('exam_sessions')
+      .select('id')
+      .eq('session_id', sessionId)
+      .single();
+    
+    if (sessionError || !session) {
+      return res.status(400).json({ error: 'Invalid session' });
+    }
+
     // Update session status
-    const { error: sessionError } = await supabase
+    const { error: updateError } = await supabase
       .from('exam_sessions')
       .update({ status: 'completed', end_time: new Date().toISOString() })
-      .eq('session_id', sessionId)
-      .eq('student_id', req.user.id);
+      .eq('id', session.id);
     
-    if (sessionError) throw sessionError;
+    if (updateError) throw updateError;
 
     // Fetch questions to compare answers
     const { data: questions, error: questionError } = await supabase
@@ -333,7 +343,7 @@ app.post('/api/exams/:examId/submit', async (req, res) => {
         const score = isCorrect ? question.points : 0;
         totalScore += score;
         responses.push({
-          session_id: sessionId,
+          session_id: session.id,
           question_id: question.id,
           answer: studentAnswer,
           score
