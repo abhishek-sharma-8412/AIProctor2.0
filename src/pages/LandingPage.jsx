@@ -22,7 +22,6 @@ const Particle = styled(motion.div)`
 const LandingContainer = styled.div`
   min-height: 100vh;
   background-color: var(--background);
-  background-image: linear-gradient(to bottom, rgba(0,0,20,0.9), rgba(0,0,30,0.95));
   display: flex;
   flex-direction: column;
   position: relative;
@@ -44,10 +43,9 @@ const NavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 3rem;
-  background-color: rgba(var(--card-bg-rgb), 0.05);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(var(--card-bg-rgb), 0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
   position: relative;
   z-index: 10;
 
@@ -57,24 +55,13 @@ const NavBar = styled.nav`
 `;
 
 const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
   font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
-`;
-
-const LogoIcon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--primary), #8a2be2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.5);
+  font-size: 1.8rem;
+  background: linear-gradient(90deg, #5B5FEF 0%, #7E41E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 10px rgba(91, 95, 239, 0.3);
 `;
 
 const NavButtons = styled.div`
@@ -88,25 +75,18 @@ const LoginButton = styled(motion.button)`
   gap: 8px;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 12px;
-  background-color: ${props => props.variant === 'admin' 
-    ? 'rgba(var(--primary-rgb), 0.8)' 
-    : 'rgba(var(--success-rgb), 0.8)'};
+  border-radius: 8px;
+  background-color: ${props => props.variant === 'admin' ? 'var(--primary)' : 'var(--success)'};
   color: white;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
-  backdrop-filter: blur(5px);
+  margin-left: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.5);
-    background-color: ${props => props.variant === 'admin' 
-      ? 'var(--primary)' 
-      : 'var(--success)'};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.5);
   }
 `;
 
@@ -150,26 +130,22 @@ const GlowingCircle = styled(motion.div)`
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 4rem;
-  background: linear-gradient(135deg, #ffffff 0%, #b8c7ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
   text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.3);
-  font-weight: 800;
-  letter-spacing: -1px;
   
   @media (max-width: 768px) {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 `;
 
 const Subtitle = styled(motion.p)`
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 800px;
-  margin: 0 auto 3.5rem;
-  line-height: 1.7;
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
   
   @media (max-width: 768px) {
     font-size: 1.1rem;
@@ -178,7 +154,7 @@ const Subtitle = styled(motion.p)`
 
 const AnimationContainer = styled(motion.div)`
   width: 100%;
-  max-width: 900px;
+  max-width: 800px;
   margin: 2rem auto 0;
   position: relative;
   height: 500px;
@@ -195,7 +171,7 @@ const ScrollIndicator = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   gap: 8px;
   cursor: pointer;
@@ -206,11 +182,11 @@ const FeaturesSection = styled.section`
   max-width: 1400px;
   margin: 6rem auto 0;
   padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(var(--card-bg-rgb), 0.7);
   backdrop-filter: blur(10px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  box-shadow: var(--shadow);
 `;
 
 const SectionTitle = styled.h2`
@@ -218,16 +194,14 @@ const SectionTitle = styled.h2`
   color: var(--text-primary);
   margin-bottom: 3rem;
   text-align: center;
-  background: linear-gradient(135deg, #ffffff 0%, #b8c7ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 `;
 
 const FeaturesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
   z-index: 3;
   
@@ -237,37 +211,19 @@ const FeaturesGrid = styled.div`
 `;
 
 const FeatureCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.05);
+  background-color: rgba(var(--card-bg-rgb), 0.7);
   backdrop-filter: blur(10px);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), #8a2be2);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(var(--primary-rgb), 0.2);
-    
-    &::before {
-      opacity: 1;
-    }
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
   }
 `;
 
@@ -286,14 +242,15 @@ const FeatureIconContainer = styled.div`
 const FeatureTitle = styled.h3`
   color: var(--text-primary);
   margin-bottom: 1rem;
-  font-size: 1.6rem;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
 `;
 
 const FeatureDescription = styled.p`
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   line-height: 1.8;
-  font-size: 1.05rem;
 `;
 
 const LandingPage = () => {
@@ -311,7 +268,7 @@ const LandingPage = () => {
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       size: Math.random() * 6 + 2,
-      color: `hsl(${Math.random() * 60 + 200}, 100%, ${50 + Math.random() * 30}%)`,
+      color: `hsl(${Math.random() * 60 + 200}, 100%, 50%)`,
       velocity: {
         x: Math.random() * 0.5 - 0.25,
         y: Math.random() * 0.5 - 0.25
@@ -401,22 +358,22 @@ const LandingPage = () => {
   const features = [
     {
       title: 'AI-Powered Proctoring',
-      description: 'Our advanced facial recognition and behavior analysis ensures exam integrity with continuous monitoring, detecting suspicious activities in real-time.',
+      description: 'Advanced facial recognition and behavior analysis to ensure exam integrity with real-time monitoring.',
       icon: '🤖'
     },
     {
       title: 'Real-time Monitoring',
-      description: 'Receive instant alerts for suspicious activities and multiple face detection with comprehensive reporting and video playback capabilities.',
+      description: 'Instant alerts for suspicious activities and multiple face detection with comprehensive reporting.',
       icon: '👁️'
     },
     {
       title: 'Secure Environment',
-      description: 'Full-screen mode enforcement, tab switching prevention, and encrypted data transmission ensure your exams remain secure and tamper-proof.',
+      description: 'Full-screen mode enforcement and tab switching prevention with encrypted data transmission.',
       icon: '🔒'
     },
     {
       title: 'Seamless Integration',
-      description: 'Easily integrate with existing LMS platforms, with support for multiple question formats and automated grading systems.',
+      description: 'Easily integrate with existing LMS platforms, with support for multiple question formats and automated grading.',
       icon: '🔄'
     }
   ];
@@ -451,8 +408,7 @@ const LandingPage = () => {
 
       <NavBar>
         <Logo>
-          <LogoIcon>AI</LogoIcon>
-          ProctorX
+          ProctorAI
         </Logo>
         <NavButtons>
           <LoginButton
@@ -543,7 +499,7 @@ const LandingPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -5 }}
               >
                 <FeatureIconContainer>
                   <span role="img" aria-label={feature.title}>{feature.icon}</span>
