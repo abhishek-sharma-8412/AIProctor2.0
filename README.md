@@ -125,7 +125,7 @@ MIT License
 
 ## Credits
 
-Developed by [Your Name]  
+Developed by [Abhishek Sharma]  
 Powered by React, Node.js, and Supabase
 
 ---
