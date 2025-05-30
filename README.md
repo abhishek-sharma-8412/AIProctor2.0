@@ -30,7 +30,7 @@ An advanced online exam platform with built-in AI proctoring features. This tool
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/ai-exam-proctoring-tool.git
+   git clone https://github.com/abhishek-sharma-8412/AIProctor2.0
    cd ai-exam-proctoring-tool
    ```
 
